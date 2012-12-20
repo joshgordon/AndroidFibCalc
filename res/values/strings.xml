@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Fibonacci Calculator</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="welcome_text">Use this program to calculate a range of fibanocci numbers. Enter the number of numbers in the sequence to calculate. </string>
+    <string name="max">Number: </string>
+    <string name="calculate">calculate</string>
+    <string name="title_activity_calculate">Calculate</string>
+    <string name="calculating">Calculating!</string>
+    <string name="take_time">This may take some time depending on the length of the sequence being calculated. </string>
+    <string name="note">This progress bar is a phoney just to convince you it\'s doing something. If this starts taking a really really really long time feel free to force quit me! I won\'t be offended. Promise!</string>
+    <string name="title_activity_display">Display</string>
+    <string name="display_info">Here are your calculated fibonacci values.</string>
+
+</resources>
