@@ -1,5 +1,8 @@
 package net.gordonator.androidfibcalc;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -17,14 +20,15 @@ public class Display extends Activity {
 		
 		Intent intent = getIntent(); 
 		
-		long [] fibArray = intent.getLongArrayExtra(Calculate.FIB_ARRAY);
-		int timeTaken = intent.getIntExtra(Calculate.TIME, 9999); 
+		ArrayList<String> fibArray = intent.getStringArrayListExtra(Calculate.FIB_ARRAY);
+		long timeTaken = intent.getLongExtra(Calculate.TIME, 9999); 
 		
 		String str = ""; 
-		for (int ii = 0; ii < fibArray.length; ii++)
+		Iterator<String> itr = fibArray.iterator(); 
+		
+		while (itr.hasNext())
 		{ 
-			//str += (ii + 1) + ": "; 
-			str += fibArray[ii] + ", "; 
+			str += itr.next() + ",-"; 
 		}
 		
 		output.setText(str); 

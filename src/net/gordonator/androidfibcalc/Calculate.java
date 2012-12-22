@@ -1,9 +1,9 @@
 package net.gordonator.androidfibcalc;
 
-//import java.math.BigInteger;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Calendar;
-//import java.util.Iterator;
+import java.util.Iterator;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -24,19 +24,7 @@ public class Calculate extends Activity {
 		
 		long startTime = Calendar.getInstance().getTimeInMillis(); 
 		
-//		ArrayList<String> fibSeq = getFibSequence(seqLen);
-		
-		ArrayList<String> fibSeq = null; 
-		
-		Thread t = new Thread(new Compute(seqLen, fibSeq)); 
-		
-		t.start(); 
-		try {
-			t.join();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
+		ArrayList<String> fibSeq = getFibSequence(seqLen); 
 		
 		long endTime = Calendar.getInstance().getTimeInMillis(); 
 		
@@ -57,5 +45,27 @@ public class Calculate extends Activity {
 //	}
 	
 	
+	public ArrayList<String> getFibSequence(int seqLen)
+	{ 
+		ArrayList<BigInteger> fib = new ArrayList<BigInteger>(seqLen);
+		fib.add(new BigInteger("1")); 
+		fib.add(new BigInteger("1")); 
+		
+		while(fib.size() <= seqLen)
+		{ 
+			fib.add(fib.get(fib.size()-1).add(fib.get(fib.size()-2))); 
+		}
+		
+		ArrayList<String> fibStrings = new ArrayList<String>(seqLen); 
+		
+		Iterator<BigInteger> itr = fib.iterator(); 
+		
+		while (itr.hasNext())
+		{ 
+			fibStrings.add(itr.next().toString()); 
+		}
+
+		return fibStrings; 
+	}
 
 }
