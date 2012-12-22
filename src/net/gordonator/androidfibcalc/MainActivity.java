@@ -13,6 +13,8 @@ public class MainActivity extends Activity {
 	public final static String SEQUENCE_LENGTH = "net.gordonator.androidfibcalc.SEQLEN"; 
 	public final static String DELIMITER = "net.gordonator.androidfibcalc.delimiter"; 
 	public final static String WRAP = "net.gordonator.androidfibcalc.wrap"; 
+	public final static String PRINT = "net.gordonator.androidfibcalc.print"; 
+
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,8 @@ public class MainActivity extends Activity {
         EditText editText = (EditText) findViewById(R.id.seqLen); 
         EditText delimiter = (EditText) findViewById(R.id.delimiter); 
         
-        RadioButton wrap = (RadioButton) findViewById(R.id.wrapRadio); 
+        RadioButton wrap = (RadioButton) findViewById(R.id.wrapRadio);
+        RadioButton print = (RadioButton) findViewById(R.id.noPrint); 
         
         
         
@@ -57,6 +60,7 @@ public class MainActivity extends Activity {
         intent.putExtra(SEQUENCE_LENGTH, seqLen); 
         intent.putExtra(DELIMITER, delimiter.getText().toString()); 
         intent.putExtra(WRAP, wrap.isChecked()); 
+        intent.putExtra(PRINT, !print.isChecked()); 
         startActivity(intent); 
 
     }

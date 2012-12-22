@@ -17,5 +17,5 @@
 	<string name="default_delimiter">", "</string>
 	<string name="oneNumberPerLine">One number per line</string>
 	<string name="wrap">Wrap</string>
-
+	<string name="noPrint">Don\'t print</string>
 </resources>
