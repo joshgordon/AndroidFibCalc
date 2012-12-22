@@ -13,5 +13,9 @@
     <string name="note">This progress bar is a phoney just to convince you it\'s doing something. If this starts taking a really really really long time feel free to force quit me! I won\'t be offended. Promise!</string>
     <string name="title_activity_display">Display</string>
     <string name="display_info">Here are your calculated fibonacci values.</string>
+	<string name="delimiter">Line Delimiter: </string>
+	<string name="default_delimiter">", "</string>
+	<string name="oneNumberPerLine">One number per line</string>
+	<string name="wrap">Wrap</string>
 
 </resources>
