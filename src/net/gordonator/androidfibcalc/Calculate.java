@@ -1,8 +1,9 @@
 package net.gordonator.androidfibcalc;
 
+//import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Iterator;
-import java.util.LinkedList;
+//import java.util.Iterator;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -23,14 +24,28 @@ public class Calculate extends Activity {
 		
 		long startTime = Calendar.getInstance().getTimeInMillis(); 
 		
-		long [] fibSeq = getFibSequence(seqLen); 
+//		ArrayList<String> fibSeq = getFibSequence(seqLen);
+		
+		ArrayList<String> fibSeq = null; 
+		
+		Thread t = new Thread(new Compute(seqLen, fibSeq)); 
+		
+		t.start(); 
+		try {
+			t.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 		
 		long endTime = Calendar.getInstance().getTimeInMillis(); 
 		
+		long totalTime = endTime - startTime; 
+		
 		Intent display = new Intent(this, Display.class) ;
 		display.putExtra(FIB_ARRAY, fibSeq); 
-		display.putExtra(TIME, endTime - startTime); 
-		startActivity(display); 
+		display.putExtra(TIME, totalTime); 
+		startActivity(display);  
 		
 		
 	}
@@ -42,25 +57,5 @@ public class Calculate extends Activity {
 //	}
 	
 	
-	public long [] getFibSequence(int seqLen)
-	{ 
-		LinkedList<Long> fib = new LinkedList<Long>();
-		fib.addFirst((long)1); 
-		fib.addFirst((long)1); 
-		
-		while(fib.size() <= seqLen)
-		{ 
-			fib.addFirst(fib.get(0) + fib.get(1)); 
-		}
-		
-		long [] fibArray = new long[fib.size()]; 
-		Iterator<Long> itr = fib.iterator(); 
-		for (int ii = fib.size() - 1; itr.hasNext(); ii--)
-		{ 
-			fibArray[ii] = itr.next(); 
-		}
-		
-		return fibArray; 
-	}
 
 }
