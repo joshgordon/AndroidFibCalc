@@ -23,7 +23,7 @@ public class Calculate extends Activity {
 		
 		long startTime = Calendar.getInstance().getTimeInMillis(); 
 		
-		int [] fibSeq = getFibSequence(seqLen); 
+		long [] fibSeq = getFibSequence(seqLen); 
 		
 		long endTime = Calendar.getInstance().getTimeInMillis(); 
 		
@@ -42,19 +42,19 @@ public class Calculate extends Activity {
 //	}
 	
 	
-	public int [] getFibSequence(int seqLen)
+	public long [] getFibSequence(int seqLen)
 	{ 
-		LinkedList<Integer> fib = new LinkedList<Integer>();
-		fib.addFirst(1); 
-		fib.addFirst(1); 
+		LinkedList<Long> fib = new LinkedList<Long>();
+		fib.addFirst((long)1); 
+		fib.addFirst((long)1); 
 		
 		while(fib.size() <= seqLen)
 		{ 
 			fib.addFirst(fib.get(0) + fib.get(1)); 
 		}
 		
-		int [] fibArray = new int[fib.size()]; 
-		Iterator<Integer> itr = fib.iterator(); 
+		long [] fibArray = new long[fib.size()]; 
+		Iterator<Long> itr = fib.iterator(); 
 		for (int ii = fib.size() - 1; itr.hasNext(); ii--)
 		{ 
 			fibArray[ii] = itr.next(); 
